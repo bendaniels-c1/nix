@@ -1,0 +1,31 @@
+# window-decoration = none
+macos-option-as-alt = left
+
+theme = Catppuccin Mocha
+# background = #1d2021
+# font-family = JetBrains Mono
+font-family = Fira Code
+font-size = 16
+font-feature = -liga
+
+keybind = unconsumed:super+c=copy_to_clipboard
+
+# Unbind CMD+... keys so they will be forwarded to Zellij
+keybind = cmd+t=unbind
+keybind = cmd+r=unbind
+keybind = cmd+w=unbind
+keybind = cmd+o=unbind
+keybind = opt+tab=unbind
+keybind = opt+shift+tab=unbind
+
+shell-integration = fish
+
+# https://ghostty.org/docs/help/terminfo
+shell-integration-features = sudo 
+shell-integration-features = ssh-terminfo
+shell-integration-features = ssh-env
+
+command = fish
+keybind = shift+enter=text:\x1b\r
+
+# custom-shader = ./shaders/shader-insane.glsl

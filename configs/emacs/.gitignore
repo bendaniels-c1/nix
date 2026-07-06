@@ -1,0 +1,12 @@
+elpa
+backups
+auto-save-list
+transient
+tree-sitter
+.cache/
+.lsp-session-v1
+projectile-bookmarks.eld
+projects
+recentf
+test.swift
+eln-cache
