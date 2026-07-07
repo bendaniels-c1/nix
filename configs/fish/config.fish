@@ -1,8 +1,3 @@
-atuin init fish --disable-up-arrow | source
-starship init fish | source
-zoxide init fish --cmd=cd | source
-fzf --fish | source
-
 fish_add_path ~/.nix-profile/bin
 fish_add_path ~/.local/bin
 fish_add_path (go env GOPATH)/bin
@@ -11,18 +6,16 @@ fish_add_path ~/.local/bin/claude
 fish_add_path ~/.cargo/bin
 fish_add_path /Applications/Obsidian.app/Contents/MacOS/
 
+atuin init fish --disable-up-arrow | source
+starship init fish | source
+zoxide init fish --cmd=cd | source
+fzf --fish | source
+
 set fish_greeting
 set -gx EDITOR emacs
 
 # Check if we're in an interactive shell
 if status is-interactive
-
-    # At this point, specify the Zellij config dir, so we can launch it manually if we want to
-    export ZELLIJ_CONFIG_DIR=$HOME/.config/zellij
-
-    # Check if our Terminal emulator is Ghostty
-    # if [ "$TERM" = "xterm-ghostty" ]
-    # end
 
     # Remote session setup (SSH/mosh)
     if set -q SSH_CONNECTION; or set -q SSH_TTY
@@ -35,11 +28,6 @@ if status is-interactive
         # Ensure TERM is at least 256color capable
         if test "$TERM" = "xterm"
             set -gx TERM xterm-256color
-        end
-
-        # Auto-attach to zellij session
-        if not set -q ZELLIJ
-            zellij attach -c dev
         end
     end
 end
