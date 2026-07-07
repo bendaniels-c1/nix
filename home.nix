@@ -1,11 +1,8 @@
-{ config, pkgs, lib, system, ... }:
+{ pkgs, ... }:
 
-let
-  isDarwin = pkgs.stdenv.isDarwin;
-in
 {
-  home.username = "bendaniels";
-  home.homeDirectory = if isDarwin then "/Users/bendaniels" else "/home/bendaniels";
+  home.username = "squire";
+  home.homeDirectory = "/home/user";
   home.stateVersion = "24.11";
 
   programs.home-manager.enable = true;
@@ -16,9 +13,6 @@ in
     ./modules/emacs.nix
     ./modules/git.nix
     ./modules/starship.nix
-    ./modules/ghostty.nix
     ./modules/atuin.nix
-    ./modules/tuicr.nix
-    ./modules/hunk.nix
   ];
 }

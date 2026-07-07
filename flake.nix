@@ -1,5 +1,5 @@
 {
-  description = "Ben's system configuration via Home Manager";
+  description = "Squire environment configuration via Home Manager";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -12,24 +12,15 @@
 
   outputs = { nixpkgs, home-manager, ... }:
     let
-      mkHome = system:
-        let
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-          };
-        in
-        home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./home.nix ];
-          extraSpecialArgs = { inherit system; };
-        };
+      pkgs = import nixpkgs {
+        system = "aarch64-linux";
+        config.allowUnfree = true;
+      };
     in
     {
-      homeConfigurations = {
-        "bendaniels@darwin" = mkHome "aarch64-darwin";
-        "bendaniels@linux" = mkHome "x86_64-linux";
-        "bendaniels@linux-aarch64" = mkHome "aarch64-linux";
+      homeConfigurations.user = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./home.nix ];
       };
     };
 }

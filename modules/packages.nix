@@ -1,8 +1,5 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
-let
-  isDarwin = pkgs.stdenv.isDarwin;
-in
 {
   home.packages = with pkgs; [
     # Core CLI tools
