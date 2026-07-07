@@ -53,10 +53,6 @@ These require manual download — not managed by Nix:
 - [OrbStack](https://orbstack.dev)
 - Magnet, Theine, Hidden Bar (Mac App Store)
 
-## Not in nixpkgs (installed via activation scripts or manually)
+## Not in nixpkgs (installed manually)
 
-- `jj-starship` — `go install github.com/dmmulroy/jj-starship@latest`
-- `jjazy` — install from gerunddev/tap or `go install`
-- `tuicr` — install from agavra/tap
-- Personal Go tools (tcr, ralph, gsd) — installed automatically via activation script
-- `gh-dash` — installed automatically via activation script
+- `tuicr`

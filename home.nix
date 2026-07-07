@@ -20,6 +20,5 @@ in
     ./modules/atuin.nix
     ./modules/tuicr.nix
     ./modules/hunk.nix
-    ./modules/go-tools.nix
   ];
 }

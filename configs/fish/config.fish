@@ -3,13 +3,12 @@ starship init fish | source
 zoxide init fish --cmd=cd | source
 fzf --fish | source
 
+fish_add_path ~/.nix-profile/bin
 fish_add_path ~/.local/bin
 fish_add_path (go env GOPATH)/bin
 fish_add_path /home/linuxbrew/.linuxbrew/bin
 fish_add_path ~/.local/bin/claude
-fish_add_path ~/.bun/bin
 fish_add_path ~/.cargo/bin
-fish_add_path ~/.elan/bin
 fish_add_path /Applications/Obsidian.app/Contents/MacOS/
 
 set fish_greeting
@@ -94,7 +93,6 @@ alias find="fd"
 alias grep="fzg"
 alias glow="glow -p"
 alias em="fzf --bind 'enter:become(emacs {})'"
-alias jji="jjazy"
 
 set -U EDITOR "emacs"
 set -U VISUAL "emacs"
