@@ -8,9 +8,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    lumen = {
+      url = "github:jnsahaj/lumen";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, lumen, ... }:
     let
       pkgs = import nixpkgs {
         system = "aarch64-linux";
@@ -20,6 +25,7 @@
     {
       homeConfigurations.user = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+        extraSpecialArgs = { inherit lumen; };
         modules = [ ./home.nix ];
       };
     };

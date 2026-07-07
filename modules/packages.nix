@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lumen, ... }:
 
 {
   home.packages = with pkgs; [
@@ -31,6 +31,9 @@
     go
     gopls
     golangci-lint
+
+    # External flake packages
+    lumen.packages.${pkgs.system}.default
 
     # Fonts
     nerd-fonts.fira-code
