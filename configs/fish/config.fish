@@ -1,10 +1,6 @@
 fish_add_path ~/.nix-profile/bin
 fish_add_path ~/.local/bin
 fish_add_path (go env GOPATH)/bin
-fish_add_path /home/linuxbrew/.linuxbrew/bin
-fish_add_path ~/.local/bin/claude
-fish_add_path ~/.cargo/bin
-fish_add_path /Applications/Obsidian.app/Contents/MacOS/
 
 atuin init fish --disable-up-arrow | source
 starship init fish | source
@@ -14,18 +10,11 @@ fzf --fish | source
 set fish_greeting
 set -gx EDITOR emacs
 
-# Check if we're in an interactive shell
 if status is-interactive
-
-    # Remote session setup (SSH/mosh)
     if set -q SSH_CONNECTION; or set -q SSH_TTY
-        # Fix true color support - mosh supports 24-bit color but only advertises 256
-        # Setting COLORTERM=truecolor enables true color in starship and other apps
-        # This is safe since modern terminals (Ghostty, iTerm2, etc.) all support it
         if not set -q COLORTERM
             set -gx COLORTERM truecolor
         end
-        # Ensure TERM is at least 256color capable
         if test "$TERM" = "xterm"
             set -gx TERM xterm-256color
         end
@@ -71,7 +60,6 @@ set -g fish_pager_color_selected_completion cdd6f4
 set -g fish_pager_color_selected_description f9e2af
 set -g fish_pager_color_selected_prefix 89b4fa
 
-# Modern CLI tool aliases
 alias cat="bat"
 alias rat="bat --paging=always"
 alias ls="eza"
@@ -85,7 +73,6 @@ alias em="fzf --bind 'enter:become(emacs {})'"
 set -U EDITOR "emacs"
 set -U VISUAL "emacs"
 
-# fzf configuration with preview and Catppuccin Mocha theme
 set -x FZF_DEFAULT_OPTS "\
 --bind 'ctrl-e:become(emacs {})' \
 --color=bg+:#313244,spinner:#f5e0dc,hl:#f38ba8 \
