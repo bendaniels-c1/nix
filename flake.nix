@@ -13,9 +13,14 @@
       url = "github:jnsahaj/lumen";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    revdiff = {
+      url = "github:umputun/revdiff";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, lumen, ... }:
+  outputs = { nixpkgs, home-manager, lumen, revdiff, ... }:
     let
       pkgs = import nixpkgs {
         system = "aarch64-linux";
@@ -25,7 +30,7 @@
     {
       homeConfigurations.user = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit lumen; };
+        extraSpecialArgs = { inherit lumen revdiff; };
         modules = [ ./home.nix ];
       };
     };

@@ -15,5 +15,6 @@
     ./modules/git.nix
     ./modules/starship.nix
     ./modules/atuin.nix
+    ./modules/revdiff.nix
   ];
 }

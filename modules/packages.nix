@@ -1,4 +1,4 @@
-{ pkgs, lumen, ... }:
+{ pkgs, lumen, revdiff, ... }:
 
 {
   home.packages = with pkgs; [
@@ -34,6 +34,7 @@
 
     # External flake packages
     lumen.packages.${pkgs.system}.default
+    revdiff.packages.${pkgs.system}.default
 
     # Fonts
     nerd-fonts.fira-code
