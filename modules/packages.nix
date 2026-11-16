@@ -1,4 +1,4 @@
-{ pkgs, lumen, revdiff, ... }:
+{ pkgs, revdiff, ... }:
 
 {
   home.packages = with pkgs; [
@@ -33,8 +33,8 @@
     golangci-lint
 
     # External flake packages
-    lumen.packages.${pkgs.system}.default
-    revdiff.packages.${pkgs.system}.default
+    pkgs.lumen
+    revdiff.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Fonts
     nerd-fonts.fira-code
