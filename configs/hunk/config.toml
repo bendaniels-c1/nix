@@ -1,0 +1,3 @@
+theme = "catppuccin-mocha"
+agent_notes = true
+watch = true

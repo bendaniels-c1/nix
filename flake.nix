@@ -8,14 +8,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    revdiff = {
-      url = "github:umputun/revdiff";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { nixpkgs, home-manager, revdiff, ... }:
+  outputs = { nixpkgs, home-manager, ... }:
     let
       pkgs = import nixpkgs {
         system = "aarch64-linux";
@@ -25,7 +20,6 @@
     {
       homeConfigurations.user = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit revdiff; };
         modules = [ ./home.nix ];
       };
     };
